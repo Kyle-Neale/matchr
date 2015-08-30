@@ -7,6 +7,5 @@ Rails.application.routes.draw do
 
   get 'users/profile'
 
-
   root to: "home#index"
 end

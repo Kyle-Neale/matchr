@@ -1,6 +1,14 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-social";
+@import "jasny-bootstrap";
+
+
+@import "variables";
+@import "styles";
+@import "tools";
+
 
 
 // make all images responsive by default
@@ -36,12 +44,18 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
-  padding-bottom: 80px;
+  background-color: black;
+  //padding-bottom: 80px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  height:100vh;
+  //margin-top: 51px; // accommodate the navbar
   }
 section {
   @extend .row;
   margin-top: 20px;
+  }
+
+  body{
+    font-family: 'Lato';
+    font-weight: 300;
   }

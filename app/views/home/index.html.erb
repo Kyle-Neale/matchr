@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="bg-dark"></div>
+
+<div class="home-information">
+	
+	<h1 class="slogan text-capitalize">Any swipe can change your life</h1>
+	<a href="" class="btn btn-lg btn-facebook">
+		<i class="fa fa-facebook">     Sign In with Facebook</i>
+	</a>
+	<br>
+</div>
+
+<script type="text/javascript">
+
+
+$(function() {
+    $('body').vegas({
+    		timer:false,
+    		shuffle: true,
+    		preload: true,
+        slides: [
+            { src: 'http://www.webpua.com/wp-content/uploads/2015/02/31d9da4fb264454a149fecb99e152819.jpg' },
+            { src: 'http://www.explosivewoman.com/wp-content/uploads/2014/02/woman-in-bed.jpg' },
+            { src: 'http://www.liveinstyle.com/nightlife/partyguide/wp-content/uploads/2014/06/o-MAN-SUIT-SEXY-facebook.jpg' }
+        ]
+    });
+});
+</script>
