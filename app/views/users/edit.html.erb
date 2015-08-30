@@ -1,2 +1,37 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+	<h4 class="text-uppercase"><small>interested in</small></h4>
+	<div class="dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		Choose
+		<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="#">Female</a></li>
+			<li><a href="#">Male</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li><a href="#">Separated link</a></li>
+		</ul>
+	</div>
+	<h4 class="text-uppercase"><small>Profile Description </small></h4>
+	<textarea class="form-control" row="5"></textarea>
+	<h4 class="text-uppercase"><small>City </small></h4>
+	<input class="form-control"></input>
+	<h4 class="text-uppercase"><small>Age </small></h4>
+	<input class="form-control"></input>
+	<br>
+	<div class="center-block">
+	<div class="fileinput fileinput-new " data-provides="fileinput">
+		<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+		</div>
+		<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+		<div>
+			<span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+			<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+		</div>
+	</div>
+</div>
+
+<button class="btn btn-success btn-block">Submit</button>
+<a href="#">cancel your account</a>
+
+</div>
