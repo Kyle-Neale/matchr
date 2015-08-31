@@ -10,6 +10,7 @@ gem "font-awesome-rails"
 gem 'jasny-bootstrap-rails', '~> 3.1.3'
 gem 'bootstrap-social-rails'
 gem 'omniauth-facebook'
+gem 'paperclip'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

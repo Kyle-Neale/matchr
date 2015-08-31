@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     	get 'matches'
     end
   end
-
+  match "sign_out", to: "sessions#destroy" ,via: 'delete'
   get 'auth/facebook/callback' ,to: "sessions#create"
 end

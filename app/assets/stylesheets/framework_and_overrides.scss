@@ -8,8 +8,7 @@
 @import "variables";
 @import "styles";
 @import "tools";
-
-
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 // make all images responsive by default
 img {
@@ -63,9 +62,13 @@ section {
   .logo{
     padding-left:30px;
     letter-spacing: 1px;
-    font-weight: 300!important;
     color:#e67e22;
-    font-family:  'Raleway'
+    font-family: 'Pacifico', cursive;  }
+
+  .logo-outside{
+    @extend .logo;
+    color:white;
+
   }
 
   .center-block{

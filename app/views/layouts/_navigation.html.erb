@@ -1,21 +1,30 @@
 <%# navigation styled for Bootstrap 3.0 %>
-
-
+<% if current_user %>
 
 <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
-        <%= render 'layouts/navigation_links' %>
+	<%= render 'layouts/navigation_links' %>
 </nav>
 <div class="navbar navbar-default navbar-fixed-top">
-  <button type="button" class="navbar-toggle button-nav pull-right" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-  <i class="fa fa-cog"></i>
-  </button>
 
-    <button type="button" class="navbar-toggle pull-right button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-    <i class="fa fa-heart"></i>
+	<button type="button" class="navbar-toggle button-nav pull-right" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+	<i class="fa fa-cog"></i>
+	</button>
+	<button type="button" class="navbar-toggle pull-right button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+	<i class="fa fa-heart"></i>
+	</button>
 
-  </button>
-  <div class="">
-<h2 class="logo">Matchr</h2>
-  </div>
+
+		<div class="">
+		<h2 class="logo">Matchr</h2>
+	</div>
 </div>
+
+	<% else %>
+
+
+		<div class="navbar-brand">
+		<h1 class="logo-outside">Matchr</h1>
+	</div>
+
+	<% end %>
 
