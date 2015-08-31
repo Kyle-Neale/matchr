@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem "font-awesome-rails"
 gem 'jasny-bootstrap-rails', '~> 3.1.3'
 gem 'bootstrap-social-rails'
+gem 'omniauth-facebook'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
