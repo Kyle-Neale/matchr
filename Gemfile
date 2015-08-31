@@ -11,6 +11,8 @@ gem 'jasny-bootstrap-rails', '~> 3.1.3'
 gem 'bootstrap-social-rails'
 gem 'omniauth-facebook'
 gem 'paperclip'
+gem 'aws-sdk' , '<2.0'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
