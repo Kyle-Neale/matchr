@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150831012820) do
     t.string   "email"
     t.string   "gender"
     t.date     "date_of_birth"
+    t.string   "location"
     t.string   "interest",      default: "Both"
     t.string   "bio"
     t.datetime "created_at",                     null: false
