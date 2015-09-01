@@ -1,0 +1,11 @@
+<li id= "<%= user.id %>" class="profile-box">
+	<div class="img"> <%= image_tag user.avatar.url(:medium), height:"100%" ,width: "370" %>	</div>
+	<div class="user-name pull-left">
+		<%= link_to profile_user_path(user.id) ,class:"" do %>
+		<%= user.name %> , <%= user.date_of_birth %>yrs +
+		<% end %>
+	</div>
+	<div class="user-location text-right">
+		<i class="fa fa-map-marker"></i> <%= user.location %>
+	</div>
+</li>

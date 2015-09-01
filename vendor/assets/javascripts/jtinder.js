@@ -588,10 +588,69 @@ $.transform = {
 			$(element).bind('touchend mouseup', this.handler);
 		},
 
-		showPane: function (index) {
-			panes.eq(current_pane).hide();
-			current_pane = index;
+		bindNew: function(element){
+			panes = $(">ul>li", element);
+			pane_count = panes.length
+			current_pane = panes.length - 1
 		},
+
+		showPane: function (index) {
+			panes.eq(current_pane).hide().remove();
+			current_pane = index;
+
+			$(".spinner").show();
+			
+		    var li_count = $( "#tinderslide > ul > li" ).length;
+			//Custom -> Add more elements if reaching the end!
+		    if( li_count < 2 ) {
+        	    	
+		    		if( li_count == 0 ) {
+
+		    			    // make an ajax call passing along our last user id
+					        $.ajax({
+					            // make a get request to the server
+					            type: "GET",
+					            // get the url from the href attribute of our link
+					            url: "/users",
+					            // the response will be a script
+					            dataType: "script",
+					 
+					            // upon success 
+					            success: function (e) {
+					            	$(".spinner").hide(); // Do something on success!
+					            }
+
+					        });
+		    		
+		    		} else {
+
+        	    	var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
+						
+							// make an ajax call passing along our last user id
+					        $.ajax({
+					 
+					            // make a get request to the server
+					            type: "GET",
+					            // get the url from the href attribute of our link
+					            url: "/users",
+					            // send the last id to our rails app
+					            data: {
+					                id: last_id
+					            },
+					            // the response will be a script
+					            dataType: "script",
+					 
+					            // upon success 
+					            success: function (e) {
+					            	$(".spinner").hide(); // Do somethig on success!
+					            }
+
+					        });
+					}
+      		} 	
+
+		},
+
 
 		next: function () {
 			return this.showPane(current_pane - 1);
@@ -705,6 +764,8 @@ $.transform = {
 			}
 			else if ($.isFunction(Plugin.prototype[options])) {
 				$.data(this, 'plugin_' + pluginName)[options]();
+		    }else{
+		    	$.data(this, 'plugin_' + pluginName).bindNew(this)
 		    }
 		});
 

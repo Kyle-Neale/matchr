@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
 
   has_attached_file :avatar,
-    :styles => {:medium => "370x370", :thumb => "100x100"}
+    :styles => {:medium => "370x370", :thumb => "100x100"},
+    :storage => :s3,
+                  :path => ":class/:id/:style/:filename",
+                  :url => ':s3_domain_url'
+
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
 
@@ -10,15 +15,17 @@ class User < ActiveRecord::Base
   end
 
   def self.create_user_from_facebook(auth)
+    byebug
+
     create ( {
                avatar: process_uri(auth['info'][:image] + "?width=999999"),
-               email: auth['info']['email'],
+               email: auth[:info][:email],
                provider: auth['provider'],
                uid: auth['uid'],
                name: auth['info'][:name],
                gender: auth[:extra][:raw_info][:gender],
-               date_of_birth: auth[:extra][:raw_info][:birthday],
-               location: auth['info'][:location],
+               date_of_birth:  auth[:extra][:raw_info][:age_range][:min],
+               location: auth[:info][:location],
                bio: auth[:extra][:raw_info][:bio]
     })
   end

@@ -1,0 +1,4 @@
+$("#tinderslide ul").append('<%= j render :partial => @users,:collection => @users %>')
+	$('#tinderslide > ul li').tinysort({attr: "id"})
+
+$('#tinderslide').jTinder();

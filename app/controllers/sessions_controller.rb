@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:omniauth] = nil
+    session.delete(:user_id)
+    user = nil
     redirect_to root_url, notice: "signed out"
 
 
