@@ -2,9 +2,11 @@
 	<th> <%= image_tag("#{match.avatar(:thumb)}",size: "50x50" ) %></th>
 	<td><%= link_to(match.name, profile_user_path(match.id) ) %></td>
 	<td><%= match.updated_at.strftime('%m/%d/%y') %></td>
+
+	<td> <%= match.find_friendship(match).first.uuid %></td>
 	<td class="text-right">
 		
-		<a href="" data-toggle="tooltip" data-placement="top" title="Get Email"><i class="fa fa-envelope"></i></a>
+		<a href="" class="chatbtn" data-toggle="tooltip" id="<%= match.find_friendship(match).first.uuid %>" data-placement="top" title="Chat"><i class="fa fa-envelope"></i></a>
 
 
 

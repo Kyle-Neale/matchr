@@ -41,8 +41,8 @@ class UsersController < ApplicationController
 
   def matches
     authorize! :read, @user
-
     @matches = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
+
   end
 
   def profile
