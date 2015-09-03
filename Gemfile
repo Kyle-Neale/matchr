@@ -18,6 +18,7 @@ gem 'sweet-alert', '~> 0.0.7'
 gem 'sweet-alert-confirm', '~> 0.1.0'
 
 gem 'nav_lynx', '~> 1.1.1'
+gem 'random_token', '~> 1.1.0'
 
 
 group :development, :test do
