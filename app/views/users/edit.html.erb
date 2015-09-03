@@ -4,7 +4,7 @@
 	<h4 class="text-uppercase"><small>interested in</small></h4>
 	<div class="dropdown">
 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		<%= current_user.interest.capitalize %>
+		<%= @user.interest.capitalize %>
 		<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -29,7 +29,7 @@
 	<div class="center-block">
 	<div class="fileinput fileinput-new " data-provides="fileinput">
 		<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-		<img src="<%= current_user.avatar %>">
+		<img src="<%= @user.avatar %>">
 		</div>
 		<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
 		<div>
