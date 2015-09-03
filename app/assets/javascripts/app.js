@@ -8,7 +8,9 @@ $("#tinderslide").jTinder({
 	// like callback
     onLike: function (item) {
 	    // set the status text
-        $('#status').html('Like image ' + (item.index()+1));
+	    var myId = $("#tinderslide > ul li").last().attr("id")
+	    $("#user_" + myId)[0].click();
+
     },
 	animationRevertSpeed: 200,
 	animationSpeed: 400,
@@ -21,7 +23,6 @@ $("#tinderslide").jTinder({
 
 	$('.actions .like, .actions .dislike').click(function(e){
 		e.preventDefault();
-		console.log('as')
 		$("#tinderslide").jTinder($(this).attr('class'));
 	});
 })

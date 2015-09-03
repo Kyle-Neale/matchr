@@ -9,17 +9,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th></th>
-				<td>User</td>
-				<td>2015-05-27</td>
-				<td class="text-right">
-					
-					<a href="" data-toggle="tooltip" data-placement="top" title="Get Email"><i class="fa fa-envelope"></i></a>
-					<a href="" data-toggle="tooltip" data-placement="top" title="Unmatch"><i class="fa fa-times"></i></a>
-
-				</td>
-			</tr>
+		<%= render :partial => "match", collection: @matches %>
+		
 		</tbody>
 
 	</table>
