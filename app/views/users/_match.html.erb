@@ -1,7 +1,7 @@
 <tr>
-	<th></th>
-	<td>User</td>
-	<td>2015-05-27</td>
+	<th> <%= image_tag("#{match.avatar(:thumb)}",size: "50x50" ) %></th>
+	<td><%= link_to(match.name, profile_user_path(match.id) ) %></td>
+	<td><%= match.updated_at.strftime('%m/%d/%y') %></td>
 	<td class="text-right">
 		
 		<a href="" data-toggle="tooltip" data-placement="top" title="Get Email"><i class="fa fa-envelope"></i></a>
