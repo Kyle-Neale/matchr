@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
     :styles => {:medium => "370x370", :thumb => "100x100"},
     :storage => :s3,
-                  :path => ":class/:id/:style/:filename",
-                  :url => ':s3_domain_url'
+    :path => ":class/:id/:style/:filename",
+    :url => ':s3_domain_url'
 
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -48,6 +48,28 @@ class User < ActiveRecord::Base
     else
       self.friendships.where(friend_id: user2).first.destroy
     end
+  end
+
+  #filter methods
+  def self.gender(user)
+    case user.interest
+    when "Male"
+      where('gender = ?', 'male')
+    when "Female"
+      where('gender = ?', 'female')
+    else
+      all
+    end
+
+
+  end
+
+  def self.not_me(user)
+    where.not(id: user.id)
+  end
+
+  def matches(current_user)
+    friendships.where(state: "pending").map(&:friend) + current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user) 
   end
 
   private

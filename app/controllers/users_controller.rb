@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :require_login, :set_user, only: [:edit, :profile, :update, :destroy]
   def index
     if params[:id]
-      @users = User.where("id < ?",params[:id])
+      @users = User.gender(current_user).not_me(current_user).where('id < ?', params[:id]).limit(10) - current_user.matches(current_user)
     else
-      @users = User.all
+      @users = User.gender(current_user).not_me(current_user).limit(10) - current_user.matches(current_user)
     end
     respond_to  do |format|
       format.html
