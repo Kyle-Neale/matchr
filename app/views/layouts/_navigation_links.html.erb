@@ -1,33 +1,16 @@
-<%# add navigation links to this file %>
-<ul class="nav navmenu-nav">
-	<li class="active">
-		<a href="">
-			<i class="fa fa-users"> </i>
-			Discover
-		</a>
-	</li>
+		<ul class="nav navmenu-nav">
+			<li class="<%= if params[:action] == "index" then "active" end %> nav-btn">
+				<%= link_to root_path do %><i class="fa fa-users"></i> Discover <% end %>
+			</li>
 
-		<li class="">
-		<a href="">
-			<i class="fa fa-heart"> </i>
-			Matches
-		</a>
-	</li>
+			<li class="<%= if params[:action] == "matches" then "active" end %> nav-btn">
+				<%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i> Matches <% end %>
+			</li>
 
-		<li class="">
-		<a href="">
-			<i class="fa fa-cog"> </i>
-			Settings
-		</a>
-	</li>
+			<li class="<%= if params[:action] == "edit" then "active" end %> nav-btn">
+				<%= link_to edit_user_path(current_user) do %><i class="fa fa-cog"></i> Settings <% end %>
+			</li>
 
-			<li class="">
+			<li class="nav-btn"><%= link_to '/sign_out', method: :delete do %><i class="fa fa-cog"></i> Log out <% end %></li>
 
-			<%= link_to  "sign_out" ,method: :delete do %>
-		<i class="fa fa-cog"> </i>
-			Sign Out
-	<% end %>
-
-	
-	</li>
-</ul>
+		</ul>

@@ -8,6 +8,7 @@
 @import "variables";
 @import "styles";
 @import "tools";
+@import "spinner";
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
 
@@ -61,16 +62,23 @@ section {
   }
 
   .logo{
-    padding-left:30px;
     letter-spacing: 1px;
     color:#e67e22;
-    font-family: 'Pacifico', cursive;  }
+    font-family: 'Pacifico', cursive; 
+    display: inline-block; }
 
   .logo-outside{
     @extend .logo;
     color:white;
+        padding-left:30px;
+
 
   }
+  .navmenu-nav li:hover{
+    @extend .active;
+  }
+
+
 
   .center-block{
     float:none!important;

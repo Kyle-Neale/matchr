@@ -15,6 +15,10 @@ gem 'aws-sdk' , '<2.0'
 gem 'simple_form'
 gem 'cancancan', '~> 1.10'
 gem 'sweet-alert', '~> 0.0.7'
+gem 'sweet-alert-confirm', '~> 0.1.0'
+
+gem 'nav_lynx', '~> 1.1.1'
+
 
 group :development, :test do
   gem 'byebug'

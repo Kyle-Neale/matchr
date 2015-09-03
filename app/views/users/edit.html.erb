@@ -46,7 +46,15 @@
 
 <br>
 
-<%= link_to("Cancel You Account", user_path(current_user.id) , method: :delete, data:{confirm: "are you sure?"}, title: "Delete Account") %>
+
+		<%= link_to 'Cancel Your Account'.html_safe,  user_path(current_user.id), method: "delete", data: {
+			toggle: "tooltip" ,placement: "top",
+    confirm: 'Are you sure you want to delete your account?',
+    :'confirm-button-text' => 'Yes',
+    :'cancel-button-text' => 'No',
+    type: 'error',
+    text: "This Can't Be Undone!",
+    }  ,title: "Delete Account" %>
 
 </div>
 

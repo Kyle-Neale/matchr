@@ -6,17 +6,23 @@
 </nav>
 <div class="navbar navbar-default navbar-fixed-top">
 
-	<button type="button" class="navbar-toggle button-nav pull-right" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-	<i class="fa fa-cog"></i>
-	</button>
-	<button type="button" class="navbar-toggle pull-right button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-	<i class="fa fa-heart"></i>
-	</button>
-
+	  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+		  	<i class="fa fa-cog"></i>
+		  </button>
 
 		<div class="">
+
+		  <%= link_to root_path, class: "navbar-brand" do %>
 		<h2 class="logo">Matchr</h2>
-	</div>
+		  <% end %>
+		  	</div>
+
+
+		  <button type="button" class="navbar-toggle button-nav pull-right">
+		  	<%= link_to matches_user_path(current_user) do %><i class="fa fa-heart"></i><% end %>
+		  </button>
+
+	
 </div>
 
 	<% else %>

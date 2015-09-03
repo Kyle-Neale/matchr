@@ -19,5 +19,7 @@
 //= require tinysort.min.js
 //= require jquery.tinysort.min.js
 //= require sweet-alert
+//= require sweet-alert-confirm
+
 
 //= require app.js
