@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_login
+  before_action :require_login, :set_user, only: [:edit, :profile, :update, :destroy]
   def index
     if params[:id]
       @users = User.where("id < ?",params[:id])
@@ -14,6 +14,28 @@ class UsersController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to edit_user_path(@user)
+
+    else
+      redirect_to edit_user_path(@user)
+    end
+
+  end
+
+  def destroy
+    if @user.destroy
+      session[:user_id] = nil
+      session[:omniauth] = nil
+      redirect_to root_path
+
+    else
+      redirect_to edit_user_path(@user)
+    end
   end
 
   def matches
@@ -21,5 +43,14 @@ class UsersController < ApplicationController
   end
 
   def profile
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:interest,:bio,:avatar, :location, :date_of_birth)
   end
 end

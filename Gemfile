@@ -12,6 +12,7 @@ gem 'bootstrap-social-rails'
 gem 'omniauth-facebook'
 gem 'paperclip'
 gem 'aws-sdk' , '<2.0'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
