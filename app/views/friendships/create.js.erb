@@ -1,6 +1,13 @@
 <% if @match == true %>
-alert('matched!')
+swal({
+	type: "success",
+	title: "<span>You've got a match!</span>",
+	text: '<div class="match"><img src= "<%= @friend.avatar %></div>"  >',
+	confirmButtonText: "Ok",
+	html: true
 
-<% else %>
+
+})
 
 <% end %>
+

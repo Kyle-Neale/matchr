@@ -18,5 +18,6 @@
 //= require vega.js
 //= require tinysort.min.js
 //= require jquery.tinysort.min.js
+//= require sweet-alert
 
 //= require app.js

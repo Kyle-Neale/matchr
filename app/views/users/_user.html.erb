@@ -2,7 +2,7 @@
 	<div class="img"> <%= image_tag user.avatar.url(:medium), height:"100%" ,width: "370" %>	</div>
 	<div class="user-name pull-left">
 		<%= link_to profile_user_path(user.id) ,class:"" do %>
-		<%= name(user) %> , <%= age(user) %> 
+		<%= name(user) %>   <%= age(user) %> 
 		<% end %>
 	</div>
 	<div class="user-location text-right">

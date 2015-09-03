@@ -5,8 +5,12 @@
     <title><%= content_for?(:title) ? yield(:title) : "Matchr" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Matchr" %>">
     <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+      <link href='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css' rel='stylesheet' type='text/css'>
+
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>

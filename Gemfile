@@ -13,6 +13,8 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 gem 'aws-sdk' , '<2.0'
 gem 'simple_form'
+gem 'cancancan', '~> 1.10'
+gem 'sweet-alert', '~> 0.0.7'
 
 group :development, :test do
   gem 'byebug'

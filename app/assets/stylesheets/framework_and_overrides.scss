@@ -9,6 +9,7 @@
 @import "styles";
 @import "tools";
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
 
 // make all images responsive by default
 img {
@@ -76,3 +77,25 @@ section {
     margin-left:auto!important;
     margin-right: auto!important;
   }
+
+.sweet-alert span{
+font-family: 'Dancing Script', cursive!important;
+}
+
+.match img {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  -webkit-transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+  -ms-transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+  transform: translate3d(0%, 0, 0) scale3d(1, 1, 1);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  -webkit-transform-style: preserve-3d;
+   background-size: cover;
+   border-radius: 50%;
+}

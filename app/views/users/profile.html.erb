@@ -2,7 +2,7 @@
 	<div class="wrap">
 		<div class="profile-box">
 			<div class="img">
-				<%= image_tag("#{@user.avatar}",height:"200px") %>
+				<%= image_tag("#{@user.avatar(:medium)}",height:"100%",width: "100%") %>
 			</div>
 			<div class="user-name pull-left  ">
 				<%= name(@user) %>  <%= age(@user) %>					</div>
@@ -11,8 +11,8 @@
 
 			<div class="description">
 			<h4 class="text-uppercase"><small>description</small></h4>
-			<p class="small">
-				<%= @user.bio %>
+			<p class="small text-muted">
+				<%= bio(@user) %>
 			</p>
 		</div>
 	</div>
