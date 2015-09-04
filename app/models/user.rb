@@ -72,8 +72,8 @@ class User < ActiveRecord::Base
     friendships.where(state: "pending").map(&:friend) + current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user) 
   end
 
-  def find_friendship(user)
-    friendships.where(state: "pending") + user.friendships.where(state: "ACTIVE") + user.inverse_friendships.where(state: "ACTIVE")
+  def find_friendship(current_user, user)
+    Friendship.where(user_id: current_user.id, friend_id: user.id).first ||  Friendship.where(user_id: user.id, friend_id: current_user.id).first
   end
   private
   def self.process_uri(uri)

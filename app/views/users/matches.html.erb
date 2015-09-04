@@ -9,7 +9,34 @@
 			</tr>
 		</thead>
 		<tbody>
-		<%= render :partial => "match", collection: @matches %>
+
+
+    <% @matches.each do |match| %>
+      <tr>
+  <th> <%= image_tag("#{match.avatar(:thumb)}",size: "50x50" ) %></th>
+  <td><%= link_to(match.name, profile_user_path(match.id),class: "match-name" ) %></td>
+  <td><%= match.updated_at.strftime('%m/%d/%y') %></td>
+
+  <td> <% match.find_friendship(current_user, match).uuid %></td>
+  <td class="text-right">
+    
+    <a href="" class="chatbtn" data-toggle="tooltip" id="<%= match.find_friendship(current_user,match).uuid %>" data-placement="top" title="Chat"><i class="fa fa-envelope"></i></a>
+
+
+
+
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe,  delete_friendship_path(friend_id: match.id), method: "delete", data: {
+      toggle: "tooltip" ,placement: "top",
+    confirm: 'Are you sure you want to unmatch?',
+    :'confirm-button-text' => 'Yes',
+    :'cancel-button-text' => 'No',
+    type: 'error',
+    text: "you should try anything atleast once.. ;)",
+    }  ,title: "Unmatch" %>
+  </td>
+</tr>
+
+    <% end %>
 		
 		</tbody>
 
@@ -19,23 +46,8 @@
 
 
 
-<div id="publisherContainer"></div>
 
-<div class="row">
-<div class="example-chat l-demo-container">
-
-  <div class='example-chat-toolbar'>
-    <label for="nameInput">Username:</label>
-    <input type='text' id='nameInput' placeholder='enter a username...'>
-  </div>
-
-  <ul id='example-messages' class="example-chat-messages"></ul>
-
-  <footer>
-    <input type='text' id='messageInput'  placeholder='Type a message...'>
-  </footer>
-</div>
-
+<div class="row addwindow">
 </div>
 
 
@@ -46,7 +58,7 @@
       })
 
 
-    $('.example-chat').hide();
+    //$('.example-chat').hide();
 
 		$(document).ready(function(){
 
@@ -54,22 +66,38 @@
 
       $('.chatbtn').click(function(e){
         e.preventDefault();
+        firebaseid = null
         firebaseid = $(this).attr('id');
-         initNewChat(firebaseid)
+        console.log(firebaseid)
+
+        initNewChat(firebaseid)
 
       })
 
         function initNewChat(firebaseid){
+          var msgWindow = '<div class="example-chat l-demo-container"><ul id="example-messages"' + 'data-id =' + firebaseid +' class="example-chat-messages"></ul> <footer> <input type="text" id="messageInput" placeholder="Type a message..."> </footer></div>'
             $('.example-chat').fadeIn();
-              messagesRef = new Firebase('https://matchr.firebaseio.com/matches/' + firebaseid );
-          
 
+              messagesRef = new Firebase('https://matchr.firebaseio.com/matches/' + firebaseid );
+            $('.addwindow').prepend(msgWindow);
+            var dataId = $('#example-messages').data('id')
+
+            $('*[data-id ="22"]')
+            console.log(dataId)
+
+            var messageList = $('ul').filter(function(){
+                   return $(this).attr('data-id') === firebaseid;
+            })
+
+  
 
   var messageField = $('#messageInput');
   var nameField = $('#nameInput');
-  var messageList = $('#example-messages');
+  //var messageList = $('#example-messages');
 
-  // LISTEN FOR KEYPRESS EVENT
+
+
+//  LISTEN FOR KEYPRESS EVENT
   messageField.keypress(function (e) {
     if (e.keyCode == 13) {
       //FIELD VALUES
@@ -86,11 +114,11 @@
   messagesRef.limitToLast(10).on('child_added', function (snapshot) {
     //GET DATA
     var data = snapshot.val();
-    var username = "<%= current_user.name %> :" || "Me :"
+    var username = data.name
     var message = data.text;
 
     //CREATE ELEMENTS MESSAGE & SANITIZE TEXT
-    var messageElement = $("<li>");
+    var messageElement = $("<li class=''>");
     var nameElement = $("<strong class='example-chat-username'></strong>")
     nameElement.text(username);
     messageElement.text(message).prepend(nameElement);
