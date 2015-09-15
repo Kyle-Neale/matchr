@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :gender
-      t.date :date_of_birth
+      t.integer :date_of_birth
       t.string :location
 
       t.string :interest, default: "Both"
