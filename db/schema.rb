@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903201919) do
+ActiveRecord::Schema.define(version: 20150915004616) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150903201919) do
     t.string   "name"
     t.string   "email"
     t.string   "gender"
-    t.date     "date_of_birth"
+    t.integer  "date_of_birth"
     t.string   "location"
     t.string   "interest",            default: "Both"
     t.string   "bio"

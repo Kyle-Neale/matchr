@@ -28,6 +28,8 @@ module Matchr
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+
     config.generators do |g|
       g.assets false
       g.helper = false
