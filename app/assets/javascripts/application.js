@@ -15,7 +15,10 @@
 //= require bootstrap-sprockets
 //= require jasny-bootstrap.min
 
-//= require_tree ../../../vendor/assets/javascripts/.
+//= require jtinder.js
+//= require vega.js
+//= require tinysort.min.js
+//= require jquery.tinysort.min.js
 //= require sweet-alert 
 //= require sweet-alert-confirm
 
