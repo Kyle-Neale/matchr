@@ -11,7 +11,7 @@ module ApplicationHelper
   end
   def age(user)
     if user.date_of_birth
-      user.date_of_birth + " yrs +"
+      user.date_of_birth.to_s + " yrs +"
     end
   end
   def location(user)
