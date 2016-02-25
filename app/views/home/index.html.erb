@@ -19,9 +19,12 @@ $(function() {
     		timer:false,
     		shuffle: true,
     		preload: true,
+                delay: 4000,
+    transitionDuration: 2000,
+              transition: 'blur2',
         slides: [
-            { src: 'http://www.webpua.com/wp-content/uploads/2015/02/31d9da4fb264454a149fecb99e152819.jpg' },
-            { src: 'http://www.explosivewoman.com/wp-content/uploads/2014/02/woman-in-bed.jpg' }
+            { src: '<%= asset_path("bg2_min.jpg") %>' },
+            { src: '<%= asset_path("bg_min.jpg") %>' }
         ]
     });
 });
